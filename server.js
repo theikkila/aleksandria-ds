@@ -39,12 +39,7 @@ function minmax(low, high, value) {
 * Validates post request body with validator (from path param)
 */
 
-function validate(schema, rbody, cb) {
-	try {
-		var body = JSON.parse(rbody);
-	} catch (e) {
-		return cb(false, 415, {errors:["Unsupported Media Type, only valid JSON allowed"], doc: rbody, schema: schema});
-	}
+function validate(schema, body, cb) {
 	var validate_fn = schemas[schema];
 	var isvalid = validate_fn(body);
 	var result = {};
