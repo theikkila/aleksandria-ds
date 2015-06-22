@@ -148,7 +148,9 @@ function isAuthorized (req, res, next) {
 var server = restify.createServer({name:"Aleksandria"});
 
 // Middleware
-server.use(restify.CORS());
+server.use(restify.CORS({
+	headers: ['Content-Type']
+}));
 server.use(restify.bodyParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
