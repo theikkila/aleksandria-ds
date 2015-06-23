@@ -3,7 +3,7 @@
   "type": "object",
   "properties": {
     "data": {
-      "type": "array"
+      "type": "any"
     },
     "time_to_submit": {
       "type": "number"
