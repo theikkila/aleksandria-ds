@@ -3,7 +3,23 @@
   "type": "object",
   "properties": {
     "data": {
-      "type": "any"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": [ "object", "any" ]
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      },
+      "required": []
     },
     "time_to_submit": {
       "type": "number"
