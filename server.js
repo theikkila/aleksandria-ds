@@ -148,14 +148,13 @@ function isAuthorized (req, res, next) {
 var server = restify.createServer({name:"Aleksandria"});
 
 // Middleware
-server.use(restify.CORS({
-	headers: ['accept'],
-	origins: ['*']
-}));
+restify.CORS.ALLOW_HEADERS.push('authorization');
+server.use(restify.CORS());
 server.use(restify.bodyParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.authorizationParser());
+server.use(restify.fullResponse());
 
 // Routes
 server.post('/validate/:schema', isSchema, validateDocument);
