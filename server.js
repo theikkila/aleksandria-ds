@@ -149,7 +149,8 @@ var server = restify.createServer({name:"Aleksandria"});
 
 // Middleware
 server.use(restify.CORS({
-	headers: ['accept']
+	headers: ['accept'],
+	origins: ['*']
 }));
 server.use(restify.bodyParser());
 server.use(restify.queryParser());
