@@ -148,8 +148,10 @@ function isAuthorized (req, res, next) {
 var server = restify.createServer({name:"Aleksandria"});
 
 // Middleware
-restify.CORS.ALLOW_HEADERS.push('authorization');
-server.use(restify.CORS());
+server.use(restify.CORS({
+	headers: ['Authorization'],
+	credentials: true
+}));
 server.use(restify.bodyParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
