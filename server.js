@@ -96,7 +96,7 @@ function postDocument (req, res, next) {
 
 
 function getDocuments (req, res, next) {
-	var limit = minmax(0, 500, parseInt(req.query.limit)) || 100;
+	var limit = minmax(0, 1500, parseInt(req.query.limit)) || 100;
 	var skip = parseInt(req.query.skip) || 0;
 	var sorting = req.query.order || {created: 1};
 	Object.keys(sorting).forEach(function (key) {
